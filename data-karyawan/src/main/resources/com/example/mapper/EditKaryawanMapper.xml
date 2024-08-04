@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.EditKaryawanMapper">
+
+    <!-- Query untuk memperbarui data karyawan -->
+    <update id="updateKaryawan">
+        UPDATE karyawan
+        SET nama = #{nama}, alamat = #{alamat}, pendidikanTerakhir = #{pendidikanTerakhir}
+        WHERE username = #{username}
+    </update>
+
+    <!-- Query untuk memeriksa data karyawan yang di update -->
+    <select id="findKaryawanByUsername" resultType="com.example.tuple.TupleEditKaryawan">
+        SELECT username, nama, alamat, pendidikanTerakhir FROM karyawan WHERE username = #{username}
+    </select>
+
+
+</mapper>

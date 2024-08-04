@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.EditUserMapper">
+
+    <!-- Query untuk memperbarui username dan password -->
+    <update id="updateUser" parameterType="com.example.tuple.TupleEditUser">
+        UPDATE user
+        SET username = #{newUsername}, password = #{newPassword}
+        WHERE username = #{oldUsername} AND password = #{oldPassword}
+    </update>
+
+    <!-- Query untuk memeriksa apakah username sudah ada -->
+    <select id="findByUsername" parameterType="String" resultType="com.example.tuple.TupleEditUser">
+        SELECT * FROM user WHERE username = #{username}
+    </select>
+
+
+</mapper>

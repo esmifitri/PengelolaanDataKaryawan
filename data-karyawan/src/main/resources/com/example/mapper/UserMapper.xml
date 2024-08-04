@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.UserMapper">
+    <select id="getEmailUser" resultType="com.example.tuple.TupleEmailUser">
+        SELECT * FROM USER
+    </select>
+
+    <select id="findByUsername" resultType="com.example.tuple.TupleInsertUser">
+        SELECT * FROM users WHERE username = #{username}
+    </select>
+
+    <insert id="insertUser">
+        INSERT INTO users (id, username, password, email, created_at, created_by)
+        VALUES (#{id}, #{username}, #{password}, #{email}, #{createdAt}, #{createdBy})
+    </insert>
+</mapper>

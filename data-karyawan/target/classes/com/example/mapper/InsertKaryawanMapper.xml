@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.InsertKaryawanMapper">
+
+    <select id="findByUsername" resultType="com.example.tuple.TupleInsertKaryawan">
+        SELECT * FROM karyawan WHERE username = #{username}
+    </select>
+
+    <insert id="insertKaryawan">
+        INSERT INTO karyawan (id, nama, username, alamat, pendidikanTerakhir, createdBy, createdAt)
+        VALUES (#{id}, #{nama}, #{username}, #{alamat}, #{pendidikanTerakhir}, #{createdBy}, #{createdAt})
+    </insert>
+
+
+</mapper>
